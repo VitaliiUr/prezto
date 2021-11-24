@@ -9,3 +9,40 @@
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
+# some more ls aliases
+alias ll='ls -alh'
+alias la='ls -A'
+alias l='ls -lh'
+
+# export ROOTSYS=/home/vitalii/root/root-6.22
+# export ROOTSYS=/home/vitalii/root/rootbuild
+export ROOTSYS=/home/vitalii/root/root_cxx17/install
+export PATH=$ROOTSYS/bin:$PATH
+export LD_LIBRARY_PATH=$ROOTSYS/lib
+export GEANT4_DIR=/home/vitalii/geant/install
+export PATH=$GEANT4_DIR/bin:$PATH
+
+alias oct="octave --no-gui"
+alias open="xdg-open"
+
+export PATH=$PATH:~/scripts
+
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
+test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+
+# export SIFIDIR=/home/vitalii/SiFi/Programs/sifi-framework/build/__some_location__
+# export PATH=/bin:${PATH}
+
